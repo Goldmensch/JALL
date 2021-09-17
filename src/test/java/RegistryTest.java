@@ -10,7 +10,7 @@ public class RegistryTest {
   public void registryTest() {
     var jall = Jall.createStandard(Locale.ENGLISH);
 
-    jall.getRegistry().getTranslation("test", Locale.ENGLISH);
+    jall.getRegistry().getLocalization("test", Locale.ENGLISH);
 
     jall.getRegistry().register(
         Localization.create(Locale.ENGLISH, Collections.EMPTY_MAP), false);

@@ -3,6 +3,14 @@ package io.github.goldmensch.placeholder;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * <p>A standard {@link PlaceholderResolver} </p>
+ * <p>Placeholders are specified with {name} </p>
+ * <p>Ex: 'Hi, i'm {age} years old.' will be: 'Hi, i'm 17 years old.' if a {@link Replacement} with
+ * the key 'age' and value '17' is passed. </p>
+ * <p>But if no {@link Replacement} with the key 'age' will be
+ * passed, the placeholder will simply removed: 'Hi, i'm years old.'</p>
+ */
 public class StandardResolver implements PlaceholderResolver {
 
   // Provided by a nice guy on Discord :3

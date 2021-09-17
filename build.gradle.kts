@@ -16,6 +16,14 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
 
-tasks.getByName<Test>("test") {
-    useJUnitPlatform()
+tasks {
+    getByName<Test>("test") {
+        useJUnitPlatform()
+    }
+
+    javadoc {
+        options {
+            outputLevel = JavadocOutputLevel.QUIET
+        }
+    }
 }

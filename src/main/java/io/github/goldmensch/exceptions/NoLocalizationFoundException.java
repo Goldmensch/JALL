@@ -3,9 +3,12 @@ package io.github.goldmensch.exceptions;
 import java.text.MessageFormat;
 import java.util.Locale;
 
-public class NoTranslationFoundException extends RuntimeException {
+/**
+ * Thrown if no localization was found
+ */
+public class NoLocalizationFoundException extends RuntimeException {
 
-  public NoTranslationFoundException(String key, Locale locale) {
+  public NoLocalizationFoundException(String key, Locale locale) {
     super(MessageFormat.format("No translation found for key {0} and Locale: {1}",
         key, locale));
   }

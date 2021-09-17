@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public final class Bundles {
+final class Bundles {
 
   private Bundles() {
   }

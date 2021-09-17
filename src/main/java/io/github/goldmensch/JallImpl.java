@@ -11,6 +11,9 @@ import java.util.Set;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * The {@link Jall} implementation
+ */
 public final class JallImpl<T> implements Jall<T> {
 
   private final Transformer<T> transformer;
@@ -30,16 +33,16 @@ public final class JallImpl<T> implements Jall<T> {
   }
 
   @Override
-  public T translate(@NotNull String key, @Nullable Locale loc,
-                     @NotNull Replacement... replacements) {
+  public T localize(@NotNull String key, @Nullable Locale loc,
+                    @NotNull Replacement... replacements) {
     Objects.requireNonNull(key);
     var locale = loc != null
         ? loc
         : fallbackLocale;
 
     var message = resolvePlaceholders(registry.containsLocale(locale)
-        ? registry.getTranslation(key, locale)
-        : registry.getTranslation(key, fallbackLocale), Set.of(replacements));
+        ? registry.getLocalization(key, locale)
+        : registry.getLocalization(key, fallbackLocale), Set.of(replacements));
 
     return transformer.transform(message);
   }

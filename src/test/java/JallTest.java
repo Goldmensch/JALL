@@ -16,11 +16,11 @@ public class JallTest {
     translator.register(Localization.fromResourceBundle(englishBundle), false);
     translator.register(Localization.fromResourceBundle(germanBundle), false);
 
-    System.out.println(translator.translate("hello", Locale.ENGLISH));
+    System.out.println(translator.localize("hello", Locale.ENGLISH));
     System.out.println(
-        translator.translate("hello", Locale.GERMAN, Replacement.create("name", "Jeff")));
+        translator.localize("hello", Locale.GERMAN, Replacement.create("name", "Jeff")));
     System.out.println(
-        translator.translate("hello", Locale.CANADA, null));
+        translator.localize("hello", Locale.CANADA, null));
   }
 
 }

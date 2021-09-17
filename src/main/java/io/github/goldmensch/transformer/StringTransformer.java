@@ -1,5 +1,8 @@
 package io.github.goldmensch.transformer;
 
+/**
+ * A standard localizer which simply return the same {@link String}
+ */
 public final class StringTransformer implements Transformer<String> {
 
   @Override

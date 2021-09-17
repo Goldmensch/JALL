@@ -3,6 +3,9 @@ package io.github.goldmensch.exceptions;
 import java.text.MessageFormat;
 import java.util.Locale;
 
+/**
+ * Thrown if a localization with this {@link Locale} already exist
+ */
 public class LocExistInRegistryException extends RuntimeException {
 
   public LocExistInRegistryException(Locale locale) {
