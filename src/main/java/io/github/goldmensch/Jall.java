@@ -24,7 +24,9 @@ public interface Jall<T> {
 
   T translate(@NotNull String key, @NotNull Locale locale, Replacement... replacements);
 
+  @NotNull
   Locale getFallbackLocale();
 
+  @NotNull
   Registry getRegistry();
 }

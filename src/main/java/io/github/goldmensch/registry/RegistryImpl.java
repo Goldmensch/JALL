@@ -1,8 +1,8 @@
-package io.github.goldmensch;
+package io.github.goldmensch.registry;
 
+import io.github.goldmensch.Localization;
 import io.github.goldmensch.exceptions.LocExistInRegistryException;
 import io.github.goldmensch.exceptions.NoTranslationFoundException;
-import io.github.goldmensch.registry.Registry;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

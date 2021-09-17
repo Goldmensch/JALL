@@ -1,5 +1,6 @@
 package io.github.goldmensch.placeholder;
 
+import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 
 public record Replacement(String key, String value) {
@@ -9,6 +10,6 @@ public record Replacement(String key, String value) {
   }
 
   public static Replacement create(@NotNull String key, @NotNull String value) {
-    return new Replacement(key, value);
+    return new Replacement(Objects.requireNonNull(value), Objects.requireNonNull(key));
   }
 }

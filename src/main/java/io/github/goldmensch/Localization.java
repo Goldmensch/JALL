@@ -19,15 +19,13 @@ public final class Localization {
   }
 
   private static Localization create(@NotNull Locale locale) {
-    Objects.requireNonNull(locale);
-    return new Localization(locale);
+    return new Localization(Objects.requireNonNull(locale));
   }
 
   public static Localization create(@NotNull Locale locale,
                                     @NotNull Map<String, String> localizations) {
-    Objects.requireNonNull(localizations);
     var loc = create(locale);
-    loc.localizations.putAll(localizations);
+    loc.localizations.putAll(Objects.requireNonNull(localizations));
     return loc;
   }
 
@@ -37,7 +35,6 @@ public final class Localization {
   }
 
   public Optional<String> getLocalization(@NotNull String key) {
-    Objects.requireNonNull(key);
     return Optional.ofNullable(localizations.get(key));
   }
 

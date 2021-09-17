@@ -20,7 +20,7 @@ public class JallTest {
     System.out.println(
         translator.translate("hello", Locale.GERMAN, Replacement.create("name", "Jeff")));
     System.out.println(
-        translator.translate("hello", Locale.CANADA, Replacement.create("name", "Jeff")));
+        translator.translate("hello", Locale.CANADA, null));
   }
 
 }
