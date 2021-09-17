@@ -3,10 +3,11 @@ package io.github.goldmensch;
 import io.github.goldmensch.placeholder.PlaceholderResolver;
 import io.github.goldmensch.placeholder.Replacement;
 import io.github.goldmensch.transformer.Transformer;
-
-import java.util.*;
-
+import java.util.Locale;
+import java.util.Objects;
+import java.util.Set;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public final class JallImpl<T> implements Jall<T> {
 
@@ -27,18 +28,25 @@ public final class JallImpl<T> implements Jall<T> {
   }
 
   @Override
-  public T translate(@NotNull String key, @NotNull Locale locale, @NotNull Replacement... replacements) {
+  public T translate(@NotNull String key, @Nullable Locale loc,
+                     @NotNull Replacement... replacements) {
     Objects.requireNonNull(key);
-    Objects.requireNonNull(locale);
+    var locale = loc != null
+        ? loc
+        : fallbackLocale;
 
     var message = resolvePlaceholders(registry.containsLocale(locale)
-            ? registry.getTranslation(key, locale)
-            : registry.getTranslation(key, fallbackLocale), Set.of(replacements));
+        ? registry.getTranslation(key, locale)
+        : registry.getTranslation(key, fallbackLocale), Set.of(replacements));
 
     return transformer.transform(message);
   }
 
   private String resolvePlaceholders(String message, Set<Replacement> replacements) {
     return resolver.resolve(message, replacements);
+  }
+
+  public Locale getFallbackLocale() {
+    return fallbackLocale;
   }
 }

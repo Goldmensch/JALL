@@ -1,10 +1,8 @@
 import io.github.goldmensch.Jall;
 import io.github.goldmensch.Localization;
-
+import io.github.goldmensch.placeholder.Replacement;
 import java.util.Locale;
 import java.util.ResourceBundle;
-
-import io.github.goldmensch.placeholder.Replacement;
 import org.junit.jupiter.api.Test;
 
 public class JallTest {
@@ -19,8 +17,10 @@ public class JallTest {
     translator.register(Localization.fromResourceBundle(germanBundle), false);
 
     System.out.println(translator.translate("hello", Locale.ENGLISH));
-    System.out.println(translator.translate("hello", Locale.GERMAN, Replacement.create("name", "Jeff")));
-    System.out.println(translator.translate("hello", Locale.CANADA, Replacement.create("name", "Jeff")));
+    System.out.println(
+        translator.translate("hello", Locale.GERMAN, Replacement.create("name", "Jeff")));
+    System.out.println(
+        translator.translate("hello", Locale.CANADA, Replacement.create("name", "Jeff")));
   }
 
 }
