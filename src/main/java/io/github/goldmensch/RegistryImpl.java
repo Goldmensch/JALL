@@ -2,14 +2,16 @@ package io.github.goldmensch;
 
 import io.github.goldmensch.exceptions.LocExistInRegistryException;
 import io.github.goldmensch.exceptions.NoTranslationFoundException;
+import io.github.goldmensch.registry.Registry;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public final class Registry {
+public final class RegistryImpl implements Registry {
 
   private final Map<Locale, Localization> registry = new ConcurrentHashMap<>();
 
+  @Override
   public void register(Localization localization, boolean override) {
     var locale = localization.getLocale();
 
@@ -19,6 +21,7 @@ public final class Registry {
     registry.put(locale, localization);
   }
 
+  @Override
   public String getTranslation(String key, Locale locale) {
     if (registry.containsKey(locale)) {
       return registry.get(locale).getLocalization(key).orElseThrow(() ->

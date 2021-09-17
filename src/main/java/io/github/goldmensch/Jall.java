@@ -3,6 +3,7 @@ package io.github.goldmensch;
 import io.github.goldmensch.placeholder.PlaceholderResolver;
 import io.github.goldmensch.placeholder.Replacement;
 import io.github.goldmensch.placeholder.StandardResolver;
+import io.github.goldmensch.registry.Registry;
 import io.github.goldmensch.transformer.StringTransformer;
 import io.github.goldmensch.transformer.Transformer;
 import java.util.Locale;
@@ -22,4 +23,8 @@ public interface Jall<T> {
   void register(@NotNull Localization localization, boolean override);
 
   T translate(@NotNull String key, @NotNull Locale locale, Replacement... replacements);
+
+  Locale getFallbackLocale();
+
+  Registry getRegistry();
 }

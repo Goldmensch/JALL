@@ -2,6 +2,7 @@ package io.github.goldmensch;
 
 import io.github.goldmensch.placeholder.PlaceholderResolver;
 import io.github.goldmensch.placeholder.Replacement;
+import io.github.goldmensch.registry.Registry;
 import io.github.goldmensch.transformer.Transformer;
 import java.util.Locale;
 import java.util.Objects;
@@ -14,7 +15,7 @@ public final class JallImpl<T> implements Jall<T> {
   private final Transformer<T> transformer;
   private final PlaceholderResolver resolver;
   private final Locale fallbackLocale;
-  private final Registry registry = new Registry();
+  private final RegistryImpl registry = new RegistryImpl();
 
   JallImpl(Locale fallbackLocale, Transformer<T> transformer, PlaceholderResolver resolver) {
     this.transformer = transformer;
@@ -46,7 +47,13 @@ public final class JallImpl<T> implements Jall<T> {
     return resolver.resolve(message, replacements);
   }
 
+  @Override
   public Locale getFallbackLocale() {
     return fallbackLocale;
+  }
+
+  @Override
+  public Registry getRegistry() {
+    return Registry.unmodifiable(registry);
   }
 }
