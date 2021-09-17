@@ -26,9 +26,9 @@ jobs:
       - name: Build Javadocs
         run: |
           echo "Building javadocs with gradle"
-          ./gradlew core:javadoc
+          ./gradlew javadoc
           echo "Moving to javadocs directory:"
-          cd core/docs
+          cd build/docs
           echo "Creating .nojekyll to have Github pages deploy html as is:"
           touch .nojekyll
       - name: Deploy
