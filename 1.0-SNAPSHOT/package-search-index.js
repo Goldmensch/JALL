@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.github.goldmensch"},{"l":"io.github.goldmensch.exceptions"},{"l":"io.github.goldmensch.placeholder"},{"l":"io.github.goldmensch.registry"},{"l":"io.github.goldmensch.transformer"}];updateSearchResults();
