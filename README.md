@@ -11,9 +11,43 @@ We provide several kind of docs: JavaDocs and our Wiki (coming soon)
 The latest JavaDocs of the [development branch](https://github.com/Goldmensch/JALL/tree/development) can be found at.
 https://goldmensch.github.io/JALL/development/.
 
-Each release on the [master branch](https://github.com/Goldmensch/JALL/tree/masster) has its own docs, these can be found under:
+Each release on the [master branch](https://github.com/Goldmensch/JALL/tree/masster) has its own docs, these can be
+found under:
 https://goldmensch.github.io/JALL/version/, where "version" represents the version of the release, for example:
 https://goldmensch.github.io/JALL/1.0/
+
+## Dependency
+
+### Gradle (Kotlin DSL)
+
+#### Releases/Dev-Builds
+
+You must replace `VERSION` with the desired version
+
+```kotlin
+repositories {
+    maven("https://eldonexus.de/repository/maven-public")
+}
+
+dependencies {
+    implementation("io.github.goldmensch", "JALL", "VERSION")
+}
+```
+
+#### Snapshots
+
+Attention. Snapshots were deleted after 2 weeks, because they are only created in feature branches and are more intended
+for short-term testing than for productive use.
+
+```kotlin
+repositories {
+    maven("https://eldonexus.de/repository/maven-snapshot")
+}
+
+dependencies {
+    implementation("io.github.goldmensch", "JALL", "VERSION")
+}
+```
 
 ## Contributing
 
