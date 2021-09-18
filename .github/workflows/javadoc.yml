@@ -39,5 +39,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
           branch: docs # The branch the action should deploy to.
-          target-folder: ${{ steps.version.outputs.PROJECT_VERSION }}
+          target-folder: test
           folder: build/docs/javadoc # The folder the action should deploy.
