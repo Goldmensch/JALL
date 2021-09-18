@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "io.github.goldmensch"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -65,7 +65,7 @@ class PublishData(private val project: Project) {
         val branch = getCheckedOutBranch()
         return when {
             branch.contentEquals("master") -> Type.RELEASE
-            branch.startsWith("release") -> Type.SNAPSHOT
+            branch.startsWith("dev") -> Type.DEV
             else -> Type.SNAPSHOT
         }
     }
@@ -85,7 +85,7 @@ class PublishData(private val project: Project) {
 
     enum class Type(private val append: String, val repo: String, private val addCommit: Boolean) {
         RELEASE("", "https://eldonexus.de/repository/maven-releases/", false),
-        DEV("-RC", "https://eldonexus.de/repository/maven-dev/", true),
+        DEV("-DEV", "https://eldonexus.de/repository/maven-dev/", true),
         SNAPSHOT("-SNAPSHOT", "https://eldonexus.de/repository/maven-snapshots/", true);
 
         fun append(name: String, appendCommit: Boolean, commitHash: String): String =

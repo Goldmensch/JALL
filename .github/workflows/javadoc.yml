@@ -7,7 +7,6 @@ on:
     branches:
       - master
       - development
-      - javadoc-deploy
   workflow_dispatch:
 
 jobs:
