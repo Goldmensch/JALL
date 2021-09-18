@@ -13,7 +13,7 @@ on:
 jobs:
   deploy_release_docs:
     runs-on: ubuntu-latest
-    #if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 16
@@ -41,4 +41,31 @@ jobs:
         with:
           branch: docs # The branch the action should deploy to.
           target-folder: ${{ steps.version.outputs.PROJECT_VERSION }}
+          folder: build/docs/javadoc # The folder the action should deploy.
+
+  deploy_development_docs:
+    runs-on: ubuntu-latest
+    #if: ${{ github.ref == 'refs/heads/development' }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 16
+        uses: actions/setup-java@v2
+        with:
+          distribution: adopt
+          java-version: 16
+
+      - name: Build Javadocs
+        run: |
+          echo "Building javadocs with gradle"
+          ./gradlew javadoc
+          echo "Moving to javadocs directory:"
+          cd build/docs/javadoc
+          echo "Creating .nojekyll to have Github pages deploy html as is:"
+          touch .nojekyll
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          branch: docs # The branch the action should deploy to.
+          target-folder: development
           folder: build/docs/javadoc # The folder the action should deploy.
