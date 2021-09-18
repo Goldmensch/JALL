@@ -21,7 +21,7 @@ jobs:
         with:
           distribution: adopt
           java-version: 16
-          cache: 'gradle'
+          cache: gradle
 
       - name: Build Javadocs
         run: |
