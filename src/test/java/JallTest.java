@@ -19,8 +19,6 @@ public class JallTest {
     System.out.println(translator.localize("hello", Locale.ENGLISH));
     System.out.println(
         translator.localize("hello", Locale.GERMAN, Replacement.create("name", "Jeff")));
-    System.out.println(
-        translator.localize("hello", Locale.CANADA, null));
   }
 
 }
