@@ -46,7 +46,7 @@ jobs:
 
   deploy_development_docs:
     runs-on: ubuntu-latest
-    #if: ${{ github.ref == 'refs/heads/development' }}
+    if: ${{ github.ref == 'refs/heads/development' }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 16
