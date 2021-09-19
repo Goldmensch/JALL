@@ -33,7 +33,7 @@ public interface Jall<T> {
    * @return A new {@link Jall}
    */
   static <T> Jall<T> create(@NotNull Locale fallback, @NotNull Transformer<T> transformer,
-                            @NotNull PlaceholderResolver resolver) {
+      @NotNull PlaceholderResolver resolver) {
     return new JallImpl<>(fallback, transformer, resolver);
   }
 
@@ -96,10 +96,10 @@ public interface Jall<T> {
 
   class Builder<T> {
 
-    private Locale fallback;
     private final Transformer<T> transformer;
-    private PlaceholderResolver resolver;
     private final Set<RegisterEntry> entries = new HashSet<>();
+    private Locale fallback;
+    private PlaceholderResolver resolver;
 
     private Builder(@NotNull Transformer<T> transformer) {
       this.transformer = transformer;
@@ -132,10 +132,13 @@ public interface Jall<T> {
 
     public Jall<T> build() {
       var localizer = Jall.create(fallback, transformer, resolver);
-      entries.forEach(registerEntry -> localizer.register(registerEntry.localization, registerEntry.override));
+      entries.forEach(
+          registerEntry -> localizer.register(registerEntry.localization, registerEntry.override));
       return localizer;
     }
 
-    record RegisterEntry(Localization localization, boolean override) {}
+    record RegisterEntry(Localization localization, boolean override) {
+
+    }
   }
 }

@@ -34,7 +34,7 @@ public final class JallImpl<T> implements Jall<T> {
 
   @Override
   public T localize(@NotNull String key, @Nullable Locale loc,
-                    @NotNull Replacement... replacements) {
+      @NotNull Replacement... replacements) {
     Objects.requireNonNull(key);
     var locale = loc != null
         ? loc

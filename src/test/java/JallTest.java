@@ -7,8 +7,16 @@ import org.junit.jupiter.api.Test;
 
 public class JallTest {
 
-  public static ResourceBundle englishBundle = ResourceBundle.getBundle("testBundle", Locale.ENGLISH);
+  public static ResourceBundle englishBundle = ResourceBundle.getBundle("testBundle",
+      Locale.ENGLISH);
   public static ResourceBundle germanBundle = ResourceBundle.getBundle("testBundle", Locale.GERMAN);
+
+  public static void testLocalize(Jall<String> localizer) {
+    System.out.println(
+        localizer.localize("hello", Locale.ENGLISH, Replacement.create("name", "Jeff")));
+    System.out.println(
+        localizer.localize("hello", Locale.GERMAN, Replacement.create("name", "Jeff")));
+  }
 
   @Test
   public void fullTest() {
@@ -17,12 +25,6 @@ public class JallTest {
     translator.register(Localization.fromResourceBundle(germanBundle), false);
 
     testLocalize(translator);
-  }
-
-  public static void testLocalize(Jall<String> localizer) {
-    System.out.println(localizer.localize("hello", Locale.ENGLISH, Replacement.create("name", "Jeff")));
-    System.out.println(
-        localizer.localize("hello", Locale.GERMAN, Replacement.create("name", "Jeff")));
   }
 
 }
