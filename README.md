@@ -9,6 +9,35 @@
 JustAnotherLocalizationLibrary - A localization library that aims to be easy to use and
 customizable.
 
+## Example Usage
+
+A small example of using JALL:
+
+_testBundle_en.properties_
+```properties
+hello=Hi {name}, how are you?
+fine=Fine, thank you.
+```
+
+_testBundle_de.properties_
+```properties
+hello=Hi {name}, wie gehts dir?
+fine=Gut, danke fürs Fragen.
+```
+
+_Code:_
+```java
+    var englishBundle = ResourceBundle.getBundle("testBundle", Locale.ENGLISH);
+    var germanBundle = ResourceBundle.getBundle("testBundle", Locale.GERMAN);
+
+    var localizer = Jall.createStandard(Locale.ENGLISH);
+    translator.register(Localization.fromResourceBundle(englishBundle), false);
+    translator.register(Localization.fromResourceBundle(germanBundle), false);
+
+    System.out.println(translator.localize("hello", Locale.ENGLISH, Replacement.create("name", "Jeff")));
+    System.out.println(translator.localize("hello", Locale.GERMAN, Replacement.create("name", "Jeff")));
+```
+
 ## Docs
 
 We provide several kind of docs: JavaDocs and our Wiki (coming soon)
@@ -34,10 +63,12 @@ You must replace `VERSION` with the desired version
 
 ```kotlin  
 repositories {  
- maven("https://eldonexus.de/repository/maven-public")}  
+ maven("https://eldonexus.de/repository/maven-public")
+}  
   
 dependencies {  
- implementation("io.github.goldmensch", "JALL", "VERSION")}  
+ implementation("io.github.goldmensch", "JALL", "VERSION")
+}  
 ```  
 
 #### Snapshots
@@ -48,10 +79,12 @@ for short-term testing than for productive use.
 
 ```kotlin  
 repositories {  
- maven("https://eldonexus.de/repository/maven-snapshot")}  
+ maven("https://eldonexus.de/repository/maven-snapshot")
+}  
   
 dependencies {  
- implementation("io.github.goldmensch", "JALL", "VERSION")}  
+ implementation("io.github.goldmensch", "JALL", "VERSION")
+}  
 ```  
 
 ## Contributing
