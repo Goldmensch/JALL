@@ -27,15 +27,15 @@ fine=Gut, danke fürs Fragen.
 
 _Code:_
 ```java
-    var englishBundle = ResourceBundle.getBundle("testBundle", Locale.ENGLISH);
-    var germanBundle = ResourceBundle.getBundle("testBundle", Locale.GERMAN);
+var englishBundle = ResourceBundle.getBundle("testBundle", Locale.ENGLISH);
+var germanBundle = ResourceBundle.getBundle("testBundle", Locale.GERMAN);
 
-    var localizer = Jall.createStandard(Locale.ENGLISH);
-    translator.register(Localization.fromResourceBundle(englishBundle), false);
-    translator.register(Localization.fromResourceBundle(germanBundle), false);
+var localizer = Jall.createStandard(Locale.ENGLISH);
+translator.register(Localization.fromResourceBundle(englishBundle), false);
+translator.register(Localization.fromResourceBundle(germanBundle), false);
 
-    System.out.println(translator.localize("hello", Locale.ENGLISH, Replacement.create("name", "Jeff")));
-    System.out.println(translator.localize("hello", Locale.GERMAN, Replacement.create("name", "Jeff")));
+System.out.println(translator.localize("hello", Locale.ENGLISH, Replacement.create("name", "Jeff")));
+System.out.println(translator.localize("hello", Locale.GERMAN, Replacement.create("name", "Jeff")));
 ```
 
 ## Docs
