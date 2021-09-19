@@ -6,7 +6,10 @@ import io.github.goldmensch.placeholder.StandardResolver;
 import io.github.goldmensch.registry.Registry;
 import io.github.goldmensch.transformer.StringTransformer;
 import io.github.goldmensch.transformer.Transformer;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.ResourceBundle;
+import java.util.Set;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -49,6 +52,10 @@ public interface Jall<T> {
     return create(fallback, new StringTransformer(), new StandardResolver());
   }
 
+  static <T> Builder<T> newBuilder(@NotNull Transformer<T> transformer) {
+    return new Builder<>(transformer);
+  }
+
   /**
    * Registers a {@link Localization}, only one {@link Localization} can be registered per {@link
    * Locale}
@@ -86,4 +93,49 @@ public interface Jall<T> {
    */
   @NotNull
   Registry getRegistry();
+
+  class Builder<T> {
+
+    private Locale fallback;
+    private final Transformer<T> transformer;
+    private PlaceholderResolver resolver;
+    private final Set<RegisterEntry> entries = new HashSet<>();
+
+    private Builder(@NotNull Transformer<T> transformer) {
+      this.transformer = transformer;
+    }
+
+    public Builder<T> setFallback(@NotNull Locale fallback) {
+      this.fallback = fallback;
+      return this;
+    }
+
+    public Builder<T> setPlaceholderResolver(@NotNull PlaceholderResolver resolver) {
+      this.resolver = resolver;
+      return this;
+    }
+
+    public Builder<T> useStandardResolver() {
+      setPlaceholderResolver(new StandardResolver());
+      return this;
+    }
+
+    public Builder<T> register(@NotNull Localization localization, boolean override) {
+      entries.add(new RegisterEntry(localization, override));
+      return this;
+    }
+
+    public Builder<T> register(@NotNull ResourceBundle bundle, boolean override) {
+      entries.add(new RegisterEntry(Localization.fromResourceBundle(bundle), override));
+      return this;
+    }
+
+    public Jall<T> build() {
+      var localizer = Jall.create(fallback, transformer, resolver);
+      entries.forEach(registerEntry -> localizer.register(registerEntry.localization, registerEntry.override));
+      return localizer;
+    }
+
+    record RegisterEntry(Localization localization, boolean override) {}
+  }
 }
