@@ -10,7 +10,8 @@ public class PlaceholderResolveTest {
   public void testPlaceholderResolve() {
     var resolver = new StandardResolver();
 
-    var inputs = List.of("\\{test}",
+    var inputs = List.of(
+        "\\{test}",
         "\\\\{test}",
         "{test}",
         "{test}test 1234{test}",
@@ -20,8 +21,10 @@ public class PlaceholderResolveTest {
     for (String string : inputs) {
       var msg = resolver.resolve(string,
           Set.of(Replacement.create("test", "smart"), Replacement.create("points", 1)));
-      System.out.println(msg + "--" + string);
+      System.out.println(msg);
     }
   }
+
+
 
 }

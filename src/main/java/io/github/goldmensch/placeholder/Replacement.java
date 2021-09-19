@@ -29,6 +29,6 @@ public record Replacement(String key, String value) {
    * @return A new {@link Replacement}
    */
   public static Replacement create(@NotNull String key, @NotNull String value) {
-    return new Replacement(Objects.requireNonNull(value), Objects.requireNonNull(key));
+    return new Replacement(Objects.requireNonNull(key), Objects.requireNonNull(value));
   }
 }
