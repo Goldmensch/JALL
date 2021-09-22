@@ -1,11 +1,13 @@
-package io.github.goldmensch;
+package io.github.goldmensch.jall;
 
-import io.github.goldmensch.placeholder.PlaceholderResolver;
-import io.github.goldmensch.placeholder.Replacement;
-import io.github.goldmensch.placeholder.StandardResolver;
-import io.github.goldmensch.registry.Registry;
-import io.github.goldmensch.transformer.StringTransformer;
-import io.github.goldmensch.transformer.Transformer;
+import io.github.goldmensch.jall.exceptions.LocExistInRegistryException;
+import io.github.goldmensch.jall.placeholder.PlaceholderResolver;
+import io.github.goldmensch.jall.placeholder.Replacement;
+import io.github.goldmensch.jall.placeholder.StandardResolver;
+import io.github.goldmensch.jall.registry.Registry;
+import io.github.goldmensch.jall.registry.Registry.UnmodifiableRegistry;
+import io.github.goldmensch.jall.transformer.StringTransformer;
+import io.github.goldmensch.jall.transformer.Transformer;
 import java.util.Locale;
 import org.jetbrains.annotations.NotNull;
 
@@ -30,7 +32,7 @@ public interface Jall<T> {
    * @return A new {@link Jall}
    */
   static <T> Jall<T> create(@NotNull Locale fallback, @NotNull Transformer<T> transformer,
-                            @NotNull PlaceholderResolver resolver) {
+      @NotNull PlaceholderResolver resolver) {
     return new JallImpl<>(fallback, transformer, resolver);
   }
 
@@ -55,9 +57,8 @@ public interface Jall<T> {
    *
    * @param localization The {@link Localization} to be registered
    * @param override     Controls if the {@link Localization} should override the registered one
-   * @throws io.github.goldmensch.exceptions.LocExistInRegistryException if the {@link Locale} is
-   *                                                                     already registered and
-   *                                                                     {@param override} is false
+   * @throws LocExistInRegistryException if the {@link Locale} is already registered and {@param
+   *                                     override} is false
    */
   void register(@NotNull Localization localization, boolean override);
 
@@ -81,8 +82,7 @@ public interface Jall<T> {
   Locale getFallbackLocale();
 
   /**
-   * @return A {@link io.github.goldmensch.registry.Registry.UnmodifiableRegistry} of the registry
-   * that belongs to this {@link Jall}
+   * @return A {@link UnmodifiableRegistry} of the registry that belongs to this {@link Jall}
    */
   @NotNull
   Registry getRegistry();

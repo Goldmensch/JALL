@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "io.github.goldmensch"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
@@ -70,18 +70,21 @@ class PublishData(private val project: Project) {
         }
     }
 
-    private fun getCheckedOutGitCommitHash(): String = System.getenv("GITHUB_SHA")?.substring(0, hashLength)
+    private fun getCheckedOutGitCommitHash(): String =
+        System.getenv("GITHUB_SHA")?.substring(0, hashLength)
             ?: "local"
 
-    private fun getCheckedOutBranch(): String = System.getenv("GITHUB_REF")?.replace("refs/heads/", "")
+    private fun getCheckedOutBranch(): String =
+        System.getenv("GITHUB_REF")?.replace("refs/heads/", "")
             ?: "local"
 
     fun getVersion(): String = getVersion(false)
 
     fun getVersion(appendCommit: Boolean): String =
-            type.append(getVersionString(), appendCommit, getCheckedOutGitCommitHash())
+        type.append(getVersionString(), appendCommit, getCheckedOutGitCommitHash())
 
-    private fun getVersionString(): String = (project.version as String).replace("-SNAPSHOT", "").replace("-DEV", "")
+    private fun getVersionString(): String =
+        (project.version as String).replace("-SNAPSHOT", "").replace("-DEV", "")
 
     fun getRepository(): String = type.repo
 
@@ -91,6 +94,6 @@ class PublishData(private val project: Project) {
         SNAPSHOT("-SNAPSHOT", "https://eldonexus.de/repository/maven-snapshots/", true);
 
         fun append(name: String, appendCommit: Boolean, commitHash: String): String =
-                name.plus(append).plus(if (appendCommit && addCommit) "-".plus(commitHash) else "")
+            name.plus(append).plus(if (appendCommit && addCommit) "-".plus(commitHash) else "")
     }
 }

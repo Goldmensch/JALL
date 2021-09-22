@@ -1,4 +1,4 @@
-package io.github.goldmensch;
+package io.github.goldmensch.jall;
 
 import java.util.Collections;
 import java.util.Locale;
@@ -34,7 +34,7 @@ public final class Localization {
    * @return A Localizer which contains the localizations from the map
    */
   public static Localization create(@NotNull Locale locale,
-                                    @NotNull Map<String, String> localizations) {
+      @NotNull Map<String, String> localizations) {
     var loc = create(locale);
     loc.localizations.putAll(Objects.requireNonNull(localizations));
     return loc;

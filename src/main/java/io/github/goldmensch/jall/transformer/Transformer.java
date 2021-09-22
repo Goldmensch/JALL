@@ -1,4 +1,4 @@
-package io.github.goldmensch.transformer;
+package io.github.goldmensch.jall.transformer;
 
 /**
  * The transformer will be used to transform a {@link String} from the localizer to the needed

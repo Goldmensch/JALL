@@ -1,4 +1,4 @@
-package io.github.goldmensch.transformer;
+package io.github.goldmensch.jall.transformer;
 
 /**
  * A standard localizer which simply return the same {@link String}

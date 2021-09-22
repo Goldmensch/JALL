@@ -1,4 +1,4 @@
-package io.github.goldmensch.exceptions;
+package io.github.goldmensch.jall.exceptions;
 
 import java.text.MessageFormat;
 import java.util.Locale;

@@ -1,4 +1,4 @@
-package io.github.goldmensch.placeholder;
+package io.github.goldmensch.jall.placeholder;
 
 import java.util.Objects;
 import org.jetbrains.annotations.NotNull;

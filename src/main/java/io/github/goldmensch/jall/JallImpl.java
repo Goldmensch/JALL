@@ -1,10 +1,10 @@
-package io.github.goldmensch;
+package io.github.goldmensch.jall;
 
-import io.github.goldmensch.placeholder.PlaceholderResolver;
-import io.github.goldmensch.placeholder.Replacement;
-import io.github.goldmensch.registry.Registry;
-import io.github.goldmensch.registry.RegistryImpl;
-import io.github.goldmensch.transformer.Transformer;
+import io.github.goldmensch.jall.placeholder.PlaceholderResolver;
+import io.github.goldmensch.jall.placeholder.Replacement;
+import io.github.goldmensch.jall.registry.Registry;
+import io.github.goldmensch.jall.registry.RegistryImpl;
+import io.github.goldmensch.jall.transformer.Transformer;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
@@ -34,7 +34,7 @@ public final class JallImpl<T> implements Jall<T> {
 
   @Override
   public T localize(@NotNull String key, @Nullable Locale loc,
-                    @NotNull Replacement... replacements) {
+      @NotNull Replacement... replacements) {
     Objects.requireNonNull(key);
     var locale = loc != null
         ? loc
