@@ -1,4 +1,4 @@
-package io.github.goldmensch;
+package io.github.goldmensch.jall;
 
 import java.util.Map;
 import java.util.ResourceBundle;

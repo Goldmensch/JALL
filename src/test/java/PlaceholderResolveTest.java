@@ -1,5 +1,5 @@
-import io.github.goldmensch.placeholder.Replacement;
-import io.github.goldmensch.placeholder.StandardResolver;
+import io.github.goldmensch.jall.placeholder.Replacement;
+import io.github.goldmensch.jall.placeholder.StandardResolver;
 import java.util.List;
 import java.util.Set;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
-package io.github.goldmensch.registry;
+package io.github.goldmensch.jall.registry;
 
-import io.github.goldmensch.Localization;
+import io.github.goldmensch.jall.Localization;
 import java.util.Locale;
 
 public interface Registry {
@@ -27,7 +27,7 @@ public interface Registry {
      * @param key    The key the localization belongs to
      * @param locale The locale which should use
      * @return The message
-     * @throws io.github.goldmensch.exceptions.NoLocalizationFoundException if the {@link Locale} is
+     * @throws io.github.goldmensch.jall.exceptions.NoLocalizationFoundException if the {@link Locale} is
      *                                                                      not registered or no
      *                                                                      localization was found
      *                                                                      with the given {@param

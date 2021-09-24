@@ -1,6 +1,6 @@
-import io.github.goldmensch.Jall;
-import io.github.goldmensch.Localization;
-import io.github.goldmensch.placeholder.Replacement;
+import io.github.goldmensch.jall.Jall;
+import io.github.goldmensch.jall.Localization;
+import io.github.goldmensch.jall.placeholder.Replacement;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package io.github.goldmensch;
+package io.github.goldmensch.jall;
 
 import java.util.Collections;
 import java.util.Locale;
