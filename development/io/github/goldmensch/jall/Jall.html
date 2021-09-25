@@ -146,7 +146,9 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first odd-row-color method-summary-table-tab1 method-summary-table"><code>static &lt;T&gt;&nbsp;<a href="Jall.Builder.html" title="class in io.github.goldmensch.jall">Jall.Builder</a>&lt;T&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table-tab1 method-summary-table"><code><span class="member-name-link"><a href="#newBuilder(io.github.goldmensch.jall.transformer.Transformer)">newBuilder</a></span>&#8203;(@NotNull <a href="transformer/Transformer.html" title="interface in io.github.goldmensch.jall.transformer">Transformer</a>&lt;T&gt;&nbsp;transformer)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab1 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab1 method-summary-table">
+<div class="block">Creates a new <a href="Jall.Builder.html" title="class in io.github.goldmensch.jall"><code>Jall.Builder</code></a></div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#register(io.github.goldmensch.jall.Localization,boolean)">register</a></span>&#8203;(@NotNull <a href="Localization.html" title="class in io.github.goldmensch.jall">Localization</a>&nbsp;localization,
  boolean&nbsp;override)</code></div>
@@ -214,6 +216,13 @@ loadScripts(document, 'script');</script>
 <h3>newBuilder</h3>
 <div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="Jall.Builder.html" title="class in io.github.goldmensch.jall">Jall.Builder</a>&lt;T&gt;</span>&nbsp;<span class="element-name">newBuilder</span>&#8203;<span class="parameters">(@NotNull
  @NotNull <a href="transformer/Transformer.html" title="interface in io.github.goldmensch.jall.transformer">Transformer</a>&lt;T&gt;&nbsp;transformer)</span></div>
+<div class="block">Creates a new <a href="Jall.Builder.html" title="class in io.github.goldmensch.jall"><code>Jall.Builder</code></a></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>transformer</code> - The <a href="transformer/Transformer.html" title="interface in io.github.goldmensch.jall.transformer"><code>Transformer</code></a> that should use</dd>
+<dt>Returns:</dt>
+<dd>A new <a href="Jall.Builder.html" title="class in io.github.goldmensch.jall"><code>Jall.Builder</code></a> with the passed <a href="transformer/Transformer.html" title="interface in io.github.goldmensch.jall.transformer"><code>Transformer</code></a></dd>
+</dl>
 </section>
 </li>
 <li>
@@ -228,9 +237,10 @@ loadScripts(document, 'script');</script>
 <dd><code>localization</code> - The <a href="Localization.html" title="class in io.github.goldmensch.jall"><code>Localization</code></a> to be registered</dd>
 <dd><code>override</code> - Controls if the <a href="Localization.html" title="class in io.github.goldmensch.jall"><code>Localization</code></a> should override the registered one</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/LocExistInRegistryException.html" title="class in io.github.goldmensch.jall.exceptions">LocExistInRegistryException</a></code> - if the <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/Locale.html" title="class or interface in java.util" class="external-link"><code>Locale</code></a> is
-                                                                     already registered and
-                                                                      is false</dd>
+<dd><code><a href="exceptions/LocExistInRegistryException.html" title="class in io.github.goldmensch.jall.exceptions">LocExistInRegistryException</a></code> - if the <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/Locale.html" title="class or interface in java.util" class="external-link"><code>Locale</code></a>
+                                                                          is already registered
+                                                                          and 
+                                                                          is false</dd>
 </dl>
 </section>
 </li>
@@ -272,8 +282,8 @@ loadScripts(document, 'script');</script>
 </span><span class="return-type">@NotNull <a href="registry/Registry.html" title="interface in io.github.goldmensch.jall.registry">Registry</a></span>&nbsp;<span class="element-name">getRegistry</span>()</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>A <a href="registry/Registry.UnmodifiableRegistry.html" title="class in io.github.goldmensch.jall.registry"><code>Registry.UnmodifiableRegistry</code></a> of the registry
- that belongs to this <a href="Jall.html" title="interface in io.github.goldmensch.jall"><code>Jall</code></a></dd>
+<dd>A <a href="registry/Registry.UnmodifiableRegistry.html" title="class in io.github.goldmensch.jall.registry"><code>Registry.UnmodifiableRegistry</code></a> of the
+ registry that belongs to this <a href="Jall.html" title="interface in io.github.goldmensch.jall"><code>Jall</code></a></dd>
 </dl>
 </section>
 </li>
