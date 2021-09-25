@@ -1,5 +1,5 @@
-import io.github.goldmensch.Jall;
-import io.github.goldmensch.transformer.StringTransformer;
+import io.github.goldmensch.jall.Jall;
+import io.github.goldmensch.jall.transformer.StringTransformer;
 import java.util.Locale;
 import org.junit.jupiter.api.Test;
 

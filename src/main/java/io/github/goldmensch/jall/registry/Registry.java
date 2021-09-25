@@ -27,11 +27,12 @@ public interface Registry {
      * @param key    The key the localization belongs to
      * @param locale The locale which should use
      * @return The message
-     * @throws io.github.goldmensch.jall.exceptions.NoLocalizationFoundException if the {@link Locale} is
-     *                                                                      not registered or no
-     *                                                                      localization was found
-     *                                                                      with the given {@param
-     *                                                                      key}
+     * @throws io.github.goldmensch.jall.exceptions.NoLocalizationFoundException if the {@link
+     *                                                                           Locale} is not
+     *                                                                           registered or no
+     *                                                                           localization was
+     *                                                                           found with the
+     *                                                                           given {@param key}
      */
     @Override
     public String getLocalization(String key, Locale locale) {
